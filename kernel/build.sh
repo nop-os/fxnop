@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 sh-elf-gcc $(find . -name "*.c") -m4-nofpu -Os -s -Iinclude -c
-sh-elf-ld $(find . -name "*.o") -T linker.ld -o fxnop.elf
+sh-elf-ld $(find . -name "*.o") -L/usr/lib/gcc/sh3eb-elf/11.2.0 -lgcc -nostdlib -T linker.ld -o fxnop.elf
 
 rm -f $(find . -name "*.o")
 
